@@ -17,8 +17,12 @@ export const getCellProperty = <TCell extends Cell, TKey extends keyof TCell>(
 ) => {
     const prop = uncertainCell[propName];
     if (typeof prop === 'undefined' || prop === null)
+        // eslint-disable-next-line
+        // @ts-ignore
         throw new Error(`Cell is missing property '${propName}'`);
     if (typeof prop !== expectedType)
+        // eslint-disable-next-line
+        // @ts-ignore
         throw new Error(`Property '${propName}' expected to be of type '${expectedType}' but is '${typeof prop}'`);
 
     return prop!; // TODO is '!' necessary ?
